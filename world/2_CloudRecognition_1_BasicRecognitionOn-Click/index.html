@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes" name="viewport">
+
+	<title></title>
+
+	<script src="architect://architect.js"></script>
+	<script type="text/javascript" src="../ade.js"></script>
+
+	<link rel="stylesheet" href="css/default.css">
+
+    <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="jquery.tinycarousel.js"></script>
+
+
+	<!-- jquery mobile CSS -->
+    <!--<link rel="stylesheet" href="jquery/jquery.mobile-1.3.2.min.css" />-->
+    <!-- required to set background transparent & enable "click through" -->
+    <link rel="stylesheet" href="jquery/jquery-mobile-transparent-ui-overlay.css" />
+
+
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="tinycarousel.css" type="text/css" media="screen"/>
+
+
+    <!-- jquery JS files -->
+    <!--<script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>-->
+    <!--<script type="text/javascript" src="jquery/jquery.mobile-1.3.2.min.js"></script>-->
+
+</head>
+
+<body>
+    <div data-role="page" id="page1" style="background: none;" >
+    	<div id="messageBox" class="info">Loading ...</div>
+
+        <div id="page1" data-role="page" style="background:none !important">
+            <!--<h1>hello world</h1>-->
+        </div>
+
+        <div id="page2" data-role="page" style="background:none !important">
+            <div data-role="header" data-position="fixed" style="opacity:0.8">
+                <h1>Vu 80 cm (32) LED TV</h1>
+                <p>
+                    <span><b>Rating:</b> 3.5/5</span>
+                    <span>218 Reviews</span>
+                </p>
+            </div>
+            <div data-role="footer" data-position="fixed" style="opacity:0.8">
+                <div data-role="tabs" id="tabs" style="height:200px">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#one" data-ajax="false">Tech Specs</a></li>
+                            <li><a href="#two" data-ajax="false">Photo Gallery</a></li>
+                            <li><a href="#three" data-ajax="false">Review Video</a></li>
+                        </ul>
+                    </div>
+                    <div id="one" class="ui-body-d ui-content">
+                        <h3>Vu Play (32) 80 cm Smart HD LED TV</h3>
+                        <h3>Details</h3>
+                        <p><b>Reference:</b>  LED32S7545</p>
+                        <p><b>Condition:</b>  New product</p>
+                        <p><b>LED32S7545</b></p>
+                        <!--<h3>Vu Play Series</h3>-->
+                        <!--<p>Why confine your personal content to a small mobile screen, when you can get the real experience on a Vu TV?</p>-->
+                        <!--<h3>Overview</h3>-->
+                        <!--<ul>-->
+                        <!--<li>ADS Panel Technology</li>-->
+                        <!--<li>1366 x 768 px Resolution</li>-->
+                        <!--<li>Smart Android 4.4</li>-->
+                        <!--</ul>-->
+                    </div>
+                    <div id="two">
+                        <div id="slider1">
+                            <a class="buttons prev" href="#">&#60;</a>
+                            <div class="viewport">
+                                <ul class="overview">
+                                    <li><img src="images/picture6.jpg" /></li>
+                                    <li><img src="images/picture5.jpg" /></li>
+                                    <li><img src="images/picture4.jpg" /></li>
+                                    <li><img src="images/picture3.jpg" /></li>
+                                    <li><img src="images/picture2.jpg" /></li>
+                                    <li><img src="images/picture1.jpg" /></li>
+                                </ul>
+                            </div>
+                            <a class="buttons next" href="#">&#62;</a>
+                        </div>
+                    </div>
+
+                    <div id="three">
+                        <iframe width="100%" src="https://www.youtube.com/embed/S5zxzPDZ5Zo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="errorMessage"></div>
+
+    	<div id="scanButtonWrapper">
+            <a href="javascript: World.scan();" data-role="button" data-inline="true">Scan</a>
+        </div>
+    </div>
+	<script src="js/basicrecognitiononclick.js"></script>
+    <script>
+        $(document).ready(function(){
+               $('#slider1').tinycarousel();
+               $(document).bind("pagebeforeload", function (event, data) {
+                  var toPage = data.toPage;
+                  if (toPage == 'undefined') {
+                    return;
+                  } else {
+                    //need additional condition to see current page in the data.objections object?
+                  if (toPage == '/android_asset/www/index.html#page1');
+                  event.preventdefault();
+                  }
+                });
+        });
+    </script>
+</body>
+</html>

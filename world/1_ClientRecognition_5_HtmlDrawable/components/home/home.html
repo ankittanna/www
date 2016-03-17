@@ -1,0 +1,14 @@
+<ion-view view-title="Employee Panda" class="loginview">
+    <ion-content class="loginview">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="Username" ng-model="login.data.emailid">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="login.data.password">
+            </label>
+            <button class="button button-block button-balanced" ng-click="login.login()">Login</button>
+            <button class="button button-block button-assertive" ng-click="login.signup()">Sign Up</button>
+        </div>
+    </ion-content>
+</ion-view>
