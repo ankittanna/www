@@ -75,13 +75,14 @@
 
 /* Slider Ionic */
 
-/* Ionic Left Tabs */
-.tabs-vertical .tabs{
-  top:44px;
-  width:150px;
-  left: 0px;
-  display: block;
-  height:50%;
-
+/* Left Tabs */
+.tabs-left>.nav-tabs>li, .tabs-right>.nav-tabs>li {
+    /*float: none;*/
 }
-/* Ionic Left Tabs */
+
+.tabs-left>.nav-tabs {
+    /*float: left;*/
+    margin-right: 19px;
+    border-right: 1px solid #ddd;
+}
+/* Left Tabs */

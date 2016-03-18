@@ -7,85 +7,86 @@
     </ion-header-bar>
     <ion-content class="loginview">
 
-        <div class="loginview" ng-controller="CarouselCtrl">
+        <div class="loginview">
             <ion-slide-box on-slide-changed="slideChanged(index)" class="loginview">
-                <ion-slide class="loginview">
-                    <img src="assets/property1.png" class="fullWidth">
-                </ion-slide>
-                <ion-slide class="loginview">
-                    <img src="assets/property2.png" class="fullWidth">
-                </ion-slide>
-                <ion-slide class="loginview">
-                    <img src="assets/property3.png" class="fullWidth">
+                <ion-slide class="loginview" ng-repeat="property in product.properties">
+                    <img src="{{property.propertyImage}}" class="fullWidth">
                 </ion-slide>
             </ion-slide-box>
         </div>
 
         <div class="card">
             <div class="item item-text-wrap">
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. <a ng-click="product.readMore()">Read More</a>
+                {{product.currentProperty.propertyDescription}} <a ng-click="product.readMore()">Read More</a>
             </div>
         </div>
 
         <div class="card">
-            <div class="item item-text-wrap">
-                <!-- <uib-tabset class="tabs-left">
+
+                <!-- <div class="item item-text-wrap"><uib-tabset class="tabs-left">
                     <uib-tab heading="2 BHK">
-                        <div class="row">
-                            <div class="col">
-                                534 sqft.
-                            </div>
-                            <div class="col textAlignRight">
-                                16.48k/sqft+.
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col">
-                                Minimum Total Price
-                            </div>
-                            <div class="col">
-                                88+ Lacs
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                Down Payment
-                            </div>
-                            <div class="col">
-                                    <div class="item range range-positive">
-                                        <i class="icon ion-ios-sunny-outline"></i>
-                                        <input type="range" name="volume" min="0" max="100" value="33">
-                                        <i class="icon ion-ios-sunny"></i>
-                                    </div>
-                            </div>
-                            <div class="col">
-                                95%
-                            </div>
-                        </div>
                     </uib-tab>
                     <uib-tab heading="3 BHK">
 
 
                     </uib-tab>
-                </uib-tabset> -->
-                <ion-tabs class="tabs-positive tabs-icon-top tabs-vertical">
+                </uib-tabset> </div>-->
+            <div class="tabbable tabs-left">
+                <ul class="nav nav-tabs">
+                    <li ng-class="getTabClass($index+1)" ng-click="setActiveTab($index+1)" ng-repeat="propertyType in product.currentProperty.propertyType"><a data-toggle="tab">{{propertyType.type}}</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div ng-class="getTabPaneClass($index+1)" id="deal" ng-repeat="propertyDetails in product.currentProperty.propertyType">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    {{propertyDetails.size}} sqft.
+                                </div>
+                                <div class="col-xs-6 textAlignRight">
+                                    {{propertyDetails.costPerSqFt}}/sqft+.
+                                </div>
+                            </div>
 
-                    <ion-tab title="Home" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
-                        <!-- Tab 1 content -->
-                    </ion-tab>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <b>Minimum Total Price</b>
+                                </div>
+                                <div class="col-xs-4 textAlignRight">
+                                    {{propertyDetails.size*propertyDetails.costPerSqFt}}+ Lacs
+                                </div>
+                            </div>
 
-                    <ion-tab title="About" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline">
-                        <!-- Tab 2 content -->
-                    </ion-tab>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <b>Down Payment</b>
+                                </div>
+                                <div class="col-xs-6 textAlignRight">
+                                    {{product.downpaymentRange}} %
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="item range range-positive">
+                                        <input type="range" name="volume" min="20" max="100" ng-model="product.downpaymentRange" ng-change="product.calculateEMIRange()">
+                                    </div>
+                                </div>
+                            </div>
 
-                    <ion-tab title="Settings" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
-                        <!-- Tab 3 content -->
-                    </ion-tab>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    <b>EMI Range</b>
+                                    <h6>20 Years Tenure @ 9.5% p.a.</h6>
+                                </div>
+                                <div class="col-xs-5 textAlignRight">
+                                    <h4>{{Math.floor(product.emiAmount)}}</h4>
+                                </div>
+                            </div>
+                        </div>
 
-                </ion-tabs>
-            </div>
+                    </div>
+
+                </div>
         </div>
 
         <div class="row loginview">
@@ -100,5 +101,7 @@
                 </button>
             </div>
         </div>
+
+
     </ion-content>
 </ion-view>
