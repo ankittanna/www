@@ -17,7 +17,7 @@ function initializeWorld($state)
     			Adding multiple targets to a target collection is straightforward. Simply follow our Target Management Tool documentation. Each target in the target collection is identified by its target name. By using this target name, it is possible to create an AR.Trackable2DObject for every target in the target collection.
     		*/
 
-    		this.tracker = new AR.ClientTracker("https://employeepanda.mybluemix.net/images/magazine.wtc", {
+    		this.tracker = new AR.ClientTracker("assets/magazine.wtc", {
     			onLoaded: this.worldLoaded
     		});
 
@@ -94,8 +94,11 @@ function initializeWorld($state)
     			},
     			onEnterFieldOfVision: function(targetName)
     			{
-    				console.log("---------> "+targetName);
-    				 $state.go('productScreen');
+    				console.log("---------> "+targetName + ' ' + $state.current.name);
+    				if($state.current.name === 'homeScreen')
+    				{
+    					$state.go('productScreen');
+    				}
     			},
     			onExitFieldOfVision: function(targetName)
     			{
@@ -152,6 +155,8 @@ function initializeWorld($state)
     //			"<div" + cssDivSurfer + "><img src='assets/surfer.png'></img></div>";
     //
     //		// Remove Scan target message after 10 sec.
+
+    	console.log("World Loaded");
     	setTimeout(function() {
     			var e = document.getElementById('loadingMessage');
     			e.parentElement.removeChild(e);
@@ -160,6 +165,8 @@ function initializeWorld($state)
     };
 
     World.init();
+
+    console.log("Running World Init");
 }
 
 

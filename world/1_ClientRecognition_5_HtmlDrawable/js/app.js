@@ -21,7 +21,13 @@
                     templateUrl: 'components/product/product.html',
                     controller: 'ProductController',
                     controllerAs: 'product'
-                });
+                })
+                .state('readMore', {
+                                    url: '/readMore',
+                                    templateUrl: 'components/readMore/readMore.html',
+                                    controller: 'ReadMoreController',
+                                    controllerAs: 'readMore'
+                                });
 
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/home');

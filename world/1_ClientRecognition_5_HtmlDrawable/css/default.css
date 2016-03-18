@@ -16,3 +16,72 @@
 {
 	background: transparent !important;
 }
+
+.backIcon
+{
+	font-size: 30px;
+	margin-top: 2px;
+}
+
+.bar-teal
+{
+	background-color: #59788C !important;
+}
+
+.displayNone
+{
+	display: none !important;
+}
+
+.fullWidth
+{
+	width: 100% !important;
+}
+
+.carousel
+{
+	background: transparent !important;
+}
+
+.textAlignRight
+{
+    text-align: right;
+}
+
+/* Slider Ionic */
+.slider {
+  height: 100%;
+}
+.slider-slide {
+  padding-top: 10px;
+  color: #000;
+  background-color: #fff;
+  text-align: center;
+}
+
+.button.ng-hide{
+  display:none;
+}
+
+.slider-pager
+{
+    bottom: 50px !important;
+}
+
+.slider-pager .slider-pager-page
+{
+    color: #FFF !important;
+}
+
+/* Slider Ionic */
+
+/* Ionic Left Tabs */
+.tabs-vertical .tabs{
+  top:44px;
+  width:150px;
+  left: 0px;
+  display: block;
+  height:50%;
+
+}
+/* Ionic Left Tabs */
