@@ -6,9 +6,10 @@
             var vm = this;
             vm.downpaymentRange = 20;
 
-            vm.properties = [];
+            vm.property = {};
             vm.currentProperty = {};
             vm.selectedProperty = '2BHK';
+            vm.currentAmenityDescription = '';
 
             activate();
 
@@ -16,8 +17,10 @@
             function activate()
             {
                 PropertyFactory.getProperties().then(function(data){
-                    vm.properties = data.properties;
-                    vm.currentProperty = vm.properties[0];
+                    vm.property = data;
+                    vm.currentAmenity = vm.property.propertyAmenities[0];
+                    vm.currentAmenityDescription = vm.property.propertyAmenities[0].amenityDescription;
+
                 }).catch(function(err){
                     alert(JSON.stringify(err))
                 });
@@ -35,6 +38,7 @@
             };
 
             vm.readMore = function(){
+                PropertyFactory.setAmenityDescription(vm.currentAmenityDescription);
                 $state.go('readMore');
             };
 
@@ -52,13 +56,13 @@
                 // vm.downpaymentRange
                 if(vm.selectedProperty === '2BHK')
                 {
-                    requiredPropertySize = vm.currentProperty.propertyType[0].size;
-                    requiredPropertyPerSqFtCost = vm.currentProperty.propertyType[0].costPerSqFt;
+                    requiredPropertySize = vm.property.propertyType[0].size;
+                    requiredPropertyPerSqFtCost = vm.property.propertyType[0].costPerSqFt;
 
                 } else if(vm.selectedProperty === '3BHK')
                 {
-                    requiredPropertySize = vm.currentProperty.propertyType[1].size;
-                    requiredPropertyPerSqFtCost = vm.currentProperty.propertyType[1].costPerSqFt;
+                    requiredPropertySize = vm.property.propertyType[1].size;
+                    requiredPropertyPerSqFtCost = vm.property.propertyType[1].costPerSqFt;
                 }
 
                  totalPropertyCost = requiredPropertyPerSqFtCost*requiredPropertySize;
@@ -67,6 +71,7 @@
                  var roi = 9.5/1200;
                  // assuming 20 yrs*12 = 240 months
                  vm.emiAmount = emiAmount = (requiredLoanAmount*roi*(Math.pow(1+roi, 240)))/(Math.pow(1+roi,240-1));
+                 vm.emiAmount = Math.floor(vm.emiAmount);
 
                  console.log(emiAmount + "<----------");
 
@@ -83,7 +88,9 @@
               // Called each time the slide changes
               $scope.slideChanged = function(index) {
                 $scope.slideIndex = index;
-                vm.currentProperty = vm.properties[index];
+                vm.currentAmenity = vm.property.propertyAmenities[index];
+                vm.currentAmenityDescription = vm.property.propertyAmenities[index].amenityDescription;
+
               };
 
               var tabClasses;
