@@ -17,7 +17,7 @@ function initializeWorld($state)
     			Adding multiple targets to a target collection is straightforward. Simply follow our Target Management Tool documentation. Each target in the target collection is identified by its target name. By using this target name, it is possible to create an AR.Trackable2DObject for every target in the target collection.
     		*/
 
-    		this.tracker = new AR.ClientTracker("assets/property.wtc", {
+    		this.tracker = new AR.ClientTracker("assets/.wtc", {
     			onLoaded: this.worldLoaded
     		});
 
@@ -90,7 +90,7 @@ function initializeWorld($state)
 
     		new AR.Trackable2DObject(this.tracker, "pageOne", {
     			drawables: {
-    				cam: [/*overlayOne, pageOneButton, weatherWidget*/]
+    				cam: [overlayOne, pageOneButton/*, weatherWidget*/]
     			},
     			onEnterFieldOfVision: function(targetName)
     			{

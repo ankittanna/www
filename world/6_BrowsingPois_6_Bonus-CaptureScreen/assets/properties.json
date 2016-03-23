@@ -1,0 +1,33 @@
+{
+  "propertyId": 1,
+  "propertyName": "Global Park, Kalyan",
+  "propertyType": [
+    {
+      "type": "2BHK",
+      "size": "644",
+      "costPerSqFt": "15500"
+    },
+    {
+      "type": "3BHK",
+      "size": "1020",
+      "costPerSqFt": "15500"
+    }
+  ],
+  "propertyAmenities": [
+    {
+      "amenityId": 1,
+      "amenityImage": "assets/property1.png",
+      "amenityDescription": "Global Park - It's a 2/3 bedroom flat with an adjoining hall. This unfurnished flat has a covered area of 1000 sq-Ft & has 2 bathrooms.Additionally, There is/are store room, Servant room. The flat has vitrified flooring. It overlooks garden/park and faces east direction. Among the facilities, There are 1 covered; 1 open car parkings, 2 lifts in the tower, 24 hours available water supply and no/rare powercut. The booking amount is rs 1,00,000. The maintenance charges of rs 1200 are paid monthly. The flat is approved by developer."
+    },
+    {
+      "amenityId": 2,
+      "amenityImage": "assets/property2.png",
+      "amenityDescription": "It is a east facing flat perfect from vastu luxarious and spacious apartment it is located in prime greenary loction & airy and breezy flat with all the amenities.Near bus stand market school & more. Beautiful view.Road touch for more details contact us."
+    },
+    {
+      "amenityId": 3,
+      "amenityImage": "assets/property3.png",
+      "amenityDescription": "Community amenities :Garden recreation facilities 24hr backup maintenance staff security club house cafeteria library bank/atm community hallHealth & fitness :Swimming pool health facilities tennis court badminton court gymnasium indoor games basket ball court.Kid friendly :Play area. Connectivity :Intercom wifi broadband internet. Green living :Rain water harvesting."
+    }
+  ]
+}
